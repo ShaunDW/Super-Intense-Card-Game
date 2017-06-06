@@ -3,54 +3,48 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class s_DeckSetUp : MonoBehaviour {
-	public enum SpeciesType{
-		Human,
-		Orc,
-		Elf,
-		Alien,
-		Monster
-	};
-
-	[System.Serializable]
-	public class Card{
-		public SpeciesType species;
-		public string cardName;
-		public int health;
-		public int armour;
-		public int attack;
-		public int intelligence;
-		public int stamina;	
-
-		public Card(SpeciesType spec, string name, int hp, int arm, int at, int intel, int stam){
-			species = spec;
-			cardName = name;
-			health = hp;
-			armour = arm;
-			attack = at;
-			intelligence = intel;
-			stamina = stam;
-		} 
-	}
-
-	public List<Card> Deck = new List<Card>();
+	
+	public List<Card> DeckAllCards = new List<Card>();
 
 	void Start(){
-		PopulateDeck();
+		InitialiseCards();
 	}
 
-	void PopulateDeck(){
+	void InitialiseCards(){
 		//Humans
-		Deck.Add(new Card(SpeciesType.Human, "Archer", 5, 2, 7, 6, 4));
-		Deck.Add(new Card(SpeciesType.Human, "Soldier", 5, 2, 7, 6, 4));
-		Deck.Add(new Card(SpeciesType.Human, "Scout", 5, 2, 7, 6, 4));
-		Deck.Add(new Card(SpeciesType.Human, "Sniper", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Human, "Archer", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Human, "Soldier", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Human, "Scout", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Human, "Sniper", 5, 2, 7, 6, 4));
 
-		//Orcs
+		// Orcs
+		DeckAllCards.Add(new Card(SpeciesType.Orc, "Archer", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Orc, "Soldier", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Orc, "Scout", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Orc, "Sniper", 5, 2, 7, 6, 4));
 
-		//Elves
+		// Elves
+		DeckAllCards.Add(new Card(SpeciesType.Elf, "Archer", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Elf, "Soldier", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Elf, "Scout", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Elf, "Sniper", 5, 2, 7, 6, 4));
 
-		//Aliens
+		// Aliens
+		DeckAllCards.Add(new Card(SpeciesType.Alien, "Archer", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Alien, "Soldier", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Alien, "Scout", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Alien, "Sniper", 5, 2, 7, 6, 4));
 
-		//Monsters
+		// Monsters
+		DeckAllCards.Add(new Card(SpeciesType.Monster, "Archer", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Monster, "Soldier", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Monster, "Scout", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Monster, "Sniper", 5, 2, 7, 6, 4));
+
+		// Loner
+		DeckAllCards.Add(new Card(SpeciesType.Loner, "Leader", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Loner, "Outlaw", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Loner, "Wonderer", 5, 2, 7, 6, 4));
+		DeckAllCards.Add(new Card(SpeciesType.Loner, "Brute", 5, 2, 7, 6, 4));
 	}
 }

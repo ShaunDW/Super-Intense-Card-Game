@@ -41,7 +41,7 @@ public class s_DeckSetUp : MonoBehaviour {
 	void PopulateDeck(){
 		//Humans
 		Deck.Add(new Card(SpeciesType.Human, "Archer", 5, 2, 7, 6, 4));
-		Deck.Add(new Card(SpeciesType.Human, "Axe Man", 5, 2, 7, 6, 4));
+		Deck.Add(new Card(SpeciesType.Human, "Soldier", 5, 2, 7, 6, 4));
 		Deck.Add(new Card(SpeciesType.Human, "Scout", 5, 2, 7, 6, 4));
 		Deck.Add(new Card(SpeciesType.Human, "Sniper", 5, 2, 7, 6, 4));
 

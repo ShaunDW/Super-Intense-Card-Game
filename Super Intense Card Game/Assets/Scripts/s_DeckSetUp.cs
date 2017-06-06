@@ -41,7 +41,7 @@ public class s_DeckSetUp : MonoBehaviour {
 		DeckAllCards.Add(new Card(SpeciesType.Monster, "Scout", 5, 2, 7, 6, 4));
 		DeckAllCards.Add(new Card(SpeciesType.Monster, "Sniper", 5, 2, 7, 6, 4));
 
-		// Loner
+		// Loners
 		DeckAllCards.Add(new Card(SpeciesType.Loner, "Leader", 5, 2, 7, 6, 4));
 		DeckAllCards.Add(new Card(SpeciesType.Loner, "Outlaw", 5, 2, 7, 6, 4));
 		DeckAllCards.Add(new Card(SpeciesType.Loner, "Wonderer", 5, 2, 7, 6, 4));

@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class s_PlayerManager : MonoBehaviour {
 
+	public bool isAi;
 	public s_DeckSetUp deckManager;
 	public List<Card> PlayerDeck = new List<Card>();
 	public List<Card> PlayerHand = new List<Card>();

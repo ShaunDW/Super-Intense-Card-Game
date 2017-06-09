@@ -3,26 +3,32 @@ using System.Collections;
 
 public class s_AttackManager : MonoBehaviour {
 
+	public s_PlayerManager playerManager;
 	public Card playerCard, aiCard;
 	public CardStat statToCompare;
 
 	public void Start(){
-		
+		playerManager = GameObject.Find("Player Manager").GetComponent<s_PlayerManager>();
+
 	}
 
-	public void Attack()
-	{
+	public void Attack() {
+		playerCard = playerManager.selectedCard;
+		aiCard = playerManager.aiSelectedCard; 
 		if (playerCard[(int)statToCompare] > aiCard[(int)statToCompare])
 		{
-			GUILayout.Label("Player Wins with " + playerCard.cardName + " against " + aiCard.cardName + " in " + statToCompare.ToString());
+			print("Player Wins with " + playerCard.species + " " + playerCard.cardName + " against " + aiCard.species + " " + aiCard.cardName + " in " + statToCompare.ToString());
+			playerManager.AiCardDead(playerManager.aiSelectedCard);
 		}
 		else if (playerCard[(int)statToCompare] == aiCard[(int)statToCompare])
 		{
-			GUILayout.Label("There's a draw with " + playerCard.cardName + " against " + aiCard.cardName + " in " + statToCompare.ToString());
+			print("There's a draw with " + playerCard.species + " " + playerCard.cardName + " against " + aiCard.species + " " + aiCard.cardName + " in " + statToCompare.ToString());
 		}
 		else
 		{
-			GUILayout.Label("AI Wins with " + aiCard.cardName + " against " + playerCard.cardName + " in " + statToCompare.ToString());
-		}
+			print("AI Wins with " + aiCard.species + " " + aiCard.cardName + " against " + playerCard.species + " " + playerCard.cardName + " in " + statToCompare.ToString());
+			playerManager.CardDead(playerManager.selectedCard);
+		}	
+		playerManager.CheckDefeated();
 	}
 }

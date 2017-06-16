@@ -8,6 +8,9 @@ public class s_PlayerManager : MonoBehaviour {
 
 	public s_DeckSetUp deckManager;
 	public s_AttackManager attackManager;
+	//
+	public s_DealerUI dealerUI;
+	//
 	public List<Card> PlayerDeck = new List<Card>();
 	public List<Card> PlayerHand = new List<Card>();
 	public List<Card> PlayerGrave = new List<Card>();
@@ -23,16 +26,17 @@ public class s_PlayerManager : MonoBehaviour {
 	void Start(){
 		deckManager = GameObject.Find("Deck Manager").GetComponent<s_DeckSetUp>();
 		attackManager = GameObject.Find("Attack Manager").GetComponent<s_AttackManager>();
+		dealerUI = GameObject.Find("DealerUI").GetComponent<s_DealerUI>();
 	}
 
 	public void StartDeck(){
 		for(int a = 0; a < deckManager.DeckAllCardsPlayer.Count; a++){
 			int b = Random.Range(0, deckManager.DeckAllCardsPlayer.Count);
-		//	if(!PlayerDeck.Contains(deckManager.DeckAllCardsPlayer[b])){
-		//		print(deckManager.DeckAllCardsPlayer[b].species + " " +deckManager.DeckAllCardsPlayer[b].cardName);
+				if(!PlayerDeck.Contains(deckManager.DeckAllCardsPlayer[b])){
+				print(deckManager.DeckAllCardsPlayer[b].species + " " +deckManager.DeckAllCardsPlayer[b].cardName);
 				PlayerDeck.Add(deckManager.DeckAllCardsPlayer[b]);
 				deckManager.DeckAllCardsPlayer.RemoveAt(b);
-		//	} 
+			} 
 		}
 		for(int a = 0; a < deckManager.DeckAllCardsAI.Count; a++){
 			int b = Random.Range(0, deckManager.DeckAllCardsAI.Count);
@@ -54,6 +58,7 @@ public class s_PlayerManager : MonoBehaviour {
 			PlayerHand.Add(PlayerDeck[b]);
 			PlayerDeck.RemoveAt(b);
 		}
+		dealerUI.OnCardsDrawn(PlayerHand);
 	}
 
 	public void CardDraw(){
